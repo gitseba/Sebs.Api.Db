@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+
+  # API -> Mongo Database
+  seb.mongo:
+    container_name: mongo.db
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - '27017:27017'
+
+  seb.api.mongo:
+    container_name: mongo.db.api
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings__ConnectionString=mongodb://mongo.db:27017"
+    depends_on:
+      - seb.mongo
+    ports:
+      - '8001:80' 

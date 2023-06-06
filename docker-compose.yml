@@ -1,0 +1,17 @@
+version: '3.4'
+name: uservices_db_connect
+
+services:
+
+  seb.mongo:
+    image: mongo
+
+  seb.api.mongo:
+    image: ${DOCKER_REGISTRY-}sebsapimongo
+    build:
+      context: .
+      dockerfile: Sebs.Api.Mongo/Dockerfile
+
+networks:
+  default:
+    name: ${COMPOSE_PROJECT_NAME}_default
