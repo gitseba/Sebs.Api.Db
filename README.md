@@ -3,6 +3,10 @@
 This project has the purpose of connecting API's with different databases (MongoDb, Postgres...) by using docker-compose.
 - It will be very useful in the future in some projects where I will want to connect by using containers and if errors will appear.
 
+Run these links after containers run in docker.
+API.MONGO -> http://localhost:8001/swagger/index.html
+API.PostgreSQL -> http://localhost:8002/swagger/index.html
+
 In order to use MongoCompass GUI, I will have to connect with: mongodb://localhost:27017
 - because Compass GUI is running outside of docker environment.
 

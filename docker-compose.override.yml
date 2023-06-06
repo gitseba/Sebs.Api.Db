@@ -20,3 +20,35 @@ services:
       - seb.mongo
     ports:
       - '8001:80' 
+
+  # API -> PostgreSQL Database
+  pgadmin:
+    container_name: pgadmin.gui
+    environment:
+    # credentials used only for login in the gui
+      - PGADMIN_DEFAULT_EMAIL=sebs@test.com
+      - PGADMIN_DEFAULT_PASSWORD=admin1234
+    # for creating a server in pg admin: username: admin password: admin1234
+    restart: always
+    ports:
+        - "5051:80"
+
+  seb.postgres:
+    container_name: postgres.db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_DB=SamplesDb
+    restart: always
+    ports:
+      - "5432:5432"
+
+  sebs.api.postgresql:
+    container_name: postgres.db.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings__ConnectionString=Host=postgres.db;Port=5432;Database=SamplesDb;User Id=admin;Password=admin1234;Pooling=true;"
+    depends_on:
+      - seb.postgres
+    ports:
+      - "8002:80"

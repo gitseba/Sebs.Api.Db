@@ -3,6 +3,7 @@ name: uservices_db_connect
 
 services:
 
+  # MONGO Db
   seb.mongo:
     image: mongo
 
@@ -11,6 +12,20 @@ services:
     build:
       context: .
       dockerfile: Sebs.Api.Mongo/Dockerfile
+
+  # PgAdmin is a web based administration tool for the PostgreSQL database. 
+  pgadmin:
+    image: dpage/pgadmin4  
+    
+  # PostgreSQL, often simply "Postgres"
+  seb.postgres:
+    image: postgres
+
+  sebs.api.postgresql:
+    image: ${DOCKER_REGISTRY-}sebsapipostgresql
+    build:
+      context: .
+      dockerfile: Sebs.Api.PostgreSQL/Dockerfile
 
 networks:
   default:
