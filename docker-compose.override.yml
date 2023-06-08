@@ -71,3 +71,24 @@ services:
     ports:
       - "8003:80"
 
+  # SQL Server
+  sebs.sqlserver:
+    container_name: sqlserver.db
+    environment:
+      UserID: "sa"
+      MSSQL_SA_PASSWORD: "Sebs12345678"
+      ACCEPT_EULA: "Y"
+    restart: always
+    ports:
+        - "1434:1433"
+
+  sebs.api.sqlserver:
+    container_name: sqlserver.db.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "SqlServerSettings:ConnectionString=Server=sqlserver.db;Database=SampleDb;User Id=sa;Password=Sebs12345678;TrustServerCertificate=True;" 
+    depends_on:
+      - sebs.sqlserver
+    ports:
+      - "8004:80"
+

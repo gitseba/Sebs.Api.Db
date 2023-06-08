@@ -9,7 +9,9 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sebs.Api.PostgreSQL", "Sebs.Api.PostgreSQL\Sebs.Api.PostgreSQL.csproj", "{998C424D-D1B4-4D1C-BADF-09D6CDDD1369}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sebs.Api.Redis", "Sebs.Api.Redis\Sebs.Api.Redis.csproj", "{3DA2FCC0-01ED-4931-97A4-68C2BE240285}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sebs.Api.Redis", "Sebs.Api.Redis\Sebs.Api.Redis.csproj", "{3DA2FCC0-01ED-4931-97A4-68C2BE240285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sebs.Api.SqlServer", "Sebs.Api.SqlServer\Sebs.Api.SqlServer.csproj", "{F27AA0A2-46BB-407E-8F6C-236C8C35A32E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3DA2FCC0-01ED-4931-97A4-68C2BE240285}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DA2FCC0-01ED-4931-97A4-68C2BE240285}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DA2FCC0-01ED-4931-97A4-68C2BE240285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F27AA0A2-46BB-407E-8F6C-236C8C35A32E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F27AA0A2-46BB-407E-8F6C-236C8C35A32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F27AA0A2-46BB-407E-8F6C-236C8C35A32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F27AA0A2-46BB-407E-8F6C-236C8C35A32E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

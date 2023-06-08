@@ -37,7 +37,18 @@ services:
       context: .
       dockerfile: Sebs.Api.Redis/Dockerfile
 
+  # SQL Server
+  sebs.sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+
+  sebs.api.sqlserver:
+    image: ${DOCKER_REGISTRY-}sebsapisqlserver
+    build:
+      context: .
+      dockerfile: Sebs.Api.SqlServer/Dockerfile
+
 networks:
   default:
     name: ${COMPOSE_PROJECT_NAME}_default
+
 
