@@ -52,3 +52,22 @@ services:
       - seb.postgres
     ports:
       - "8002:80"
+
+
+  # API -> REDIS Database
+  sebs.redis:
+    container_name: redis.db
+    restart: always
+    ports:
+      - 6379:6379
+
+  sebs.api.redis:
+    container_name: redis.db.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "CacheSettings:ConnectionString=redis.db:6379"
+    depends_on:
+      - sebs.redis
+    ports:
+      - "8003:80"
+

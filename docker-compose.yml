@@ -27,6 +27,17 @@ services:
       context: .
       dockerfile: Sebs.Api.PostgreSQL/Dockerfile
 
+  # REDIS
+  sebs.redis:
+    image: redis:alpine
+
+  sebs.api.redis:
+    image: ${DOCKER_REGISTRY-}sebsapiredis
+    build:
+      context: .
+      dockerfile: Sebs.Api.Redis/Dockerfile
+
 networks:
   default:
     name: ${COMPOSE_PROJECT_NAME}_default
+
